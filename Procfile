@@ -1,1 +1,1 @@
-web: gunicorn rsr-test3: server
+web: gunicorn rsrtest3: server
