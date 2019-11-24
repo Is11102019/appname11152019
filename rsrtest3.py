@@ -7,10 +7,6 @@ from dash_table.Format import Format, Scheme, Sign, Symbol
 
 import pandas as pd
 
-
-# In[10]:
-
-
 df = pd.read_excel('rsr data.xlsx', sheet_name='Sheet1')
 
 def convertt(t):
@@ -20,26 +16,14 @@ def convertt(t):
 
 df['Latest Visit Date'] = df['Latest Visit Date'].apply(lambda t: convertt(t))
 
-#names_df = df[['Unit Manager Name - Planned', 'Employee Executed Name']].drop_duplicates()
-
 selection_store = df['Store'].unique()
 
 dff = df[df['Store'] == df['Store'][0]]
 dff = dff.transpose()
 dff.reset_index(inplace=True)
 dff.columns=['Attribute', 'Value']
-#selection_rsr = names_df['Employee Executed Name'].unique()
-#selection_week = df['Week End Date'].unique()
-
-
-# In[3]:
-
 
 app = dash.Dash(__name__)
-
-
-# In[7]:
-
 
 app.layout = html.Div([
 
@@ -82,22 +66,6 @@ app.layout = html.Div([
     ])
 ])
 
-
-# In[ ]:
-
-
-# @app.callback(
-#     Output('selection-rsr', 'options'),
-#     [Input('selection-rm', 'value')]
-# )
-# def set_rsr_dropdown(selection_rm_val):
-#     selection_rsr = names_df[names_df['Unit Manager Name - Planned'] == selection_rm_val]['Employee Executed Name']   
-#     return [{'label': i, 'value': i} for i in selection_rsr]
-
-
-# In[8]:
-
-
 @app.callback(
     Output('table', 'data'),
     [Input('selection-store','value')]
@@ -108,10 +76,6 @@ def update_table(selection_store_val):
     dff.reset_index(inplace=True)
     dff.columns=['Attribute', 'Value']
     return dff.to_dict('records')
-
-
-# In[ ]:
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
