@@ -1,1 +1,1 @@
-web: gunicorn rsrtest3: app
+web: gunicorn run: app
