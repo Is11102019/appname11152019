@@ -12,7 +12,7 @@ df = pd.read_excel('rsr data.xlsx', sheet_name='Sheet1')
 def convertt(t):
     if t.year > 1:
         return t.strftime('%a, %b %e %Y, %I:%M %p')
-    return 'No Date'
+    return ''
 
 df['Latest Visit Date'] = df['Latest Visit Date'].apply(lambda t: convertt(t))
 
