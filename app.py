@@ -17,7 +17,7 @@ app.layout = html.Div([
         dcc.Dropdown(
             id='selection-store',
             options=[{'label': i, 'value': i} for i in selection_store],
-            value=df['Store'][0]
+            value='Option B'
             )
         ],
         style={'width': '100%', 'display': 'inline-block'}
