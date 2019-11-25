@@ -9,12 +9,12 @@ import pandas as pd
 
 df = pd.read_excel('rsr data.xlsx', sheet_name='Sheet1')
 
-def convertt(t):
-    if t.year > 1:
-        return t.strftime('%a, %b %e %Y, %I:%M %p')
-    return ""
+#def convertt(t):
+#    if t.year > 1:
+#        return t.strftime('%a, %b %e %Y, %I:%M %p')
+#    return ""
 
-df['Latest Visit Date'] = df['Latest Visit Date'].apply(lambda t: convertt(t))
+#df['Latest Visit Date'] = df['Latest Visit Date'].apply(lambda t: convertt(t))
 
 selection_store = df['Store'].unique()
 
